@@ -40,3 +40,16 @@ This is an example exercise.
 ```{r}
 
 ```
+
+---
+
+## Predictive Mean Matching (PMM)
+
+```yaml
+type: VideoExercise
+key: 9fe4bb9735
+xp: 50
+```
+
+`@projector_key`
+dfc39e5c1fefef0cc571dfaba89a05af
