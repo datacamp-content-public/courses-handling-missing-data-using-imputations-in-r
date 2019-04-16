@@ -21,7 +21,7 @@ By now you have seen imputation under normal-linear and non-normal distributions
 
 
 ---
-## Insert title here...
+## What is PMM?
 
 ```yaml
 type: "FullSlide"
@@ -29,7 +29,11 @@ key: "b992a3ebac"
 ```
 
 `@part1`
+- PMM is the method of imputing missing values
 
+
+`@citations`
+1. https://stefvanbuuren.name/fimd/sec-pmm.html
 
 
 `@script`
