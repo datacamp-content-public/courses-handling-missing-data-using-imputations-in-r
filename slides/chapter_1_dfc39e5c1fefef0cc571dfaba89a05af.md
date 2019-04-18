@@ -42,14 +42,64 @@ key: "b992a3ebac"
 
 
 `@script`
-PMM is another attractive method of imputing missing values. PMM is the method of imputing missing values by predicting the values based by selecting donors from complete cases. 
-
-Here you will have high-level understanding of the PMM.  
-- Originally developed for monotonic missing pattern where only a single variable is missing data. 
+PMM is the method of imputing missing values by predicting the values based by selecting donors from complete cases. 
+  - Originally developed for monotonic missing pattern where only a single variable is missing data. 
 - It builds a **linear regression model** on complete observations to find the coefficients
-- Uses the coefficients to predict values for missing and non-missing cases and creates a new set of coefficients and uses them to predict values for all cases;missing and non-missing cases both. 
+- Uses the coefficients to create a new set of coefficients and uses them to predict values for missing and non-missing cases both. 
 - One donor is randomly drawn from a set of candidates whose predicted value is closer to predicted value of missing case and the observed value of the donor is taken to replace the missing value.
-PMM is less vulnerable to model misspecification by making it implicit which means there is no need to explicitly define distribution of missing values and avoid meaningless imputations.
+
+
+---
+## title
+
+```yaml
+type: "FullSlide"
+key: "663c374de2"
+hide_title: true
+```
+
+`@part1`
+- It is used to impute quantitative data that is not normally distributed
+
+- **More realistic values**:
+- bounded variables
+- E.g age of person is not imputed negative
+- original variable is discrete then imputed value will also be discrete
+
+
+`@citations`
+2. https://statisticalhorizons.com/predictive-mean-matching
+
+
+`@script`
+As compared to methods in previous lessons , PMM imputes more realistic values taking care of the problem of boundaries on variable values. For example if a variable is discrete variable then imputed values will also be discrete. For example a study observes the age of respondents so age can't be negative, PMM will make sure that imputed age is never negative. This is because, PMM borrows values from complete observations.
+
+
+---
+## Example
+
+```yaml
+type: "FullSlide"
+key: "c019d15a0a"
+```
+
+`@part1`
+![](https://assets.datacamp.com/production/repositories/4908/datasets/66afc95a54577536db91b06971c6e2f24bc3e423/ch03-misspecify-1.png)
+
+Robustness of predictive mean matching (right) relative to imputation under the linear normal model (left).
+
+
+`@citations`
+https://stefvanbuuren.name/fimd/sec-pmm.html#fig:misspecify
+
+
+`@script`
+Figure illustrates the robustness of predictive mean matching relative to the normal model. The figure displays the body mass index (BMI) of children aged 0–2 years. BMI rapidly increases during the first half year of life, has a peak around 1 year and then slowly drops at ages when the children start to walk. 
+
+The imputation model is, however, incorrectly specified, being linear in age. Imputations created under the normal model display in an incorrect slowly rising pattern, and contain several implausible values. 
+Look at BMI values that start to drop between 0.5-1.0.
+
+In contrast, the imputations created by predictive mean matching follow the data quite nicely, even though the predictive mean itself is clearly off-target for some of the ages. See BMI points between 0.5-1.0, unlike normal imputation values are according to specification. This example shows that predictive mean matching is robust against misspecification, where the normal model is not.
 
 
 ---
@@ -164,7 +214,7 @@ Y.1–Y.5 are the five imputed versions of Y.
 X1–X4 are the four predictor variables that we used as predictors for the imputation.
 By comparing rows 4 and 6, i.e. the rows with NAs, you can see the effect of multiple imputation. While Y.0 contains missings, Y.1–Y.5 are filled with imputed values. 
 
-Note that the imputed values are different in all 5 imputations.  (row 4: -9, -5, 4, -6, 1; row 6: -3, 9, 0, 1, -3).
+Note that the imputed values are different in all 5 imputations. 
 
 So, why are you seeing such differences? the answer is that this tells how much uncertainty is there in our imputation by which we can calculate standard errors that are more correct. So in way it is a good result.
 
@@ -183,6 +233,7 @@ key: "86e2a5ec7c"
 - PMM works best large data sets to get better donors
 - Does not work well with sparse data
 - Cannot be used to impute values outside the range of data
+- PMM is less vulnerable to model misspecification and avoids meaningless imputations.
 
 
 `@citations`
@@ -190,62 +241,9 @@ https://stefvanbuuren.name/fimd/sec-pmm.html#fig:misspecify
 
 
 `@script`
-The method works best with large samples, and provides imputations that possess many characteristics of the complete data. 
+The method works best with large samples
 Predictive mean matching cannot be used to extrapolate beyond the range of the data, or to interpolate within the range of the data if the data at the interior are sparse. Also, it may not perform well with small datasets. 
 The effect of number of donors on PMM is explained in detail in the given citation in this slide.
-
-
----
-## title
-
-```yaml
-type: "FullSlide"
-key: "663c374de2"
-hide_title: true
-```
-
-`@part1`
-- It is used to impute quantitative data that is not normally distributed
-
-- **More realistic values**:
-- bounded variables
-- E.g age of person is not imputed negative
-- original variable is discrete then imputed value will also be discrete
-
-
-`@citations`
-2. https://statisticalhorizons.com/predictive-mean-matching
-
-
-`@script`
-As compared to methods in previous lessons , PMM imputes more realistic values taking care of the problem of boundaries on variable values. For example if a variable is discrete variable then imputed values will also be discrete. For example a study observes the age of respondents so age can't be negative, PMM will make sure that imputed age is never negative. This is because, PMM borrows values from complete observations.
-
-
----
-## Example
-
-```yaml
-type: "FullSlide"
-key: "c019d15a0a"
-```
-
-`@part1`
-![](https://assets.datacamp.com/production/repositories/4908/datasets/66afc95a54577536db91b06971c6e2f24bc3e423/ch03-misspecify-1.png)
-
-Robustness of predictive mean matching (right) relative to imputation under the linear normal model (left).
-
-
-`@citations`
-https://stefvanbuuren.name/fimd/sec-pmm.html#fig:misspecify
-
-
-`@script`
-Figure illustrates the robustness of predictive mean matching relative to the normal model. The figure displays the body mass index (BMI) of children aged 0–2 years. BMI rapidly increases during the first half year of life, has a peak around 1 year and then slowly drops at ages when the children start to walk. 
-
-The imputation model is, however, incorrectly specified, being linear in age. Imputations created under the normal model display in an incorrect slowly rising pattern, and contain several implausible values. 
-Look at BMI values that start to drop between 0.5-1.0.
-
-In contrast, the imputations created by predictive mean matching follow the data quite nicely, even though the predictive mean itself is clearly off-target for some of the ages. See BMI points between 0.5-1.0, unlike normal imputation values are according to specification. This example shows that predictive mean matching is robust against misspecification, where the normal model is not.
 
 
 ---
