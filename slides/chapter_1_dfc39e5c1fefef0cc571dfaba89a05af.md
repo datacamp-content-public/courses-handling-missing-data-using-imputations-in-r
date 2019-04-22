@@ -30,7 +30,7 @@ key: "b992a3ebac"
 
 `@part1`
 - PMM is the method of imputing missing values by predicting the values by selecting donors (typically 3, 5, or 10) from complete cases.
-- Originally developed for monotonic missing pattern where only a single variable is missing data
+- Originally developed for monotonic missing pattern
 - It builds a **linear regression model** on complete observations to find the coefficients
 - Uses the coefficients to predict values for missing and non-missing cases 
 - One donor is randomly drawn from a set of candidates whose predicted value is closer to predicted value of missing case and the observed value of the donor is taken to replace the missing value.
