@@ -159,9 +159,9 @@ data_imp_all<- complete(multiple_imp, repeated, include=TRUE)
 `@script`
 Here MICE will run PMM to impute missing values more than once.
 
-use the method mice([datasetname], m=[number of imputations], method="pmm") to impute misisng values because this is multiple imputation use the any number of imputations as required. here it is 5.
+use the method mice that uses [datasetname], m which is the [number of imputations] and method="pmm") to impute misisng values. because this is multiple imputation use any number of imputations as required. here it is 5.
 
-Then save your multiple imputed dataset by using the "complete([imputedobject])" method along with the arguments: "repeated" and "include=TRUE" that tell complete method how to store the multiple imputed results.
+Then save your multiple imputed dataset by using the "complete()" method passing the imputed data along with the arguments: "repeated" and "include=TRUE" that tell complete method how to store the multiple imputed results.
 
 
 ---
