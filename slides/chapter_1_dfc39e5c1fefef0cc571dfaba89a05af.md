@@ -42,11 +42,11 @@ key: "b992a3ebac"
 
 
 `@script`
-PMM is the method of imputing missing values by predicting the values based by selecting donors from complete cases. 
+PMM is the method of imputing missing values by predicting the values by selecting donors from complete cases. 
 PMM was developed for monotonic missing pattern where only a single variable is missing data. 
 It builds a linear regression model on complete observations to find the coefficients
 Uses the coefficients to create a new set of coefficients and uses them to predict values for missing and non-missing cases both. 
-One donor is randomly drawn from a set of candidates whose predicted value is closer to predicted value of missing case and the observed value of the donor is taken to replace the missing value.
+One donor is randomly drawn from a set of candidates, whose predicted value is closer to predicted value of missing case and the observed value of the donor is taken to replace the missing value.
 
 
 ---
@@ -145,7 +145,6 @@ hide_title: true
 `@part1`
 ## Multiple PMM Imputation using MICE
 
-Consider the dataset named 'data' having missing values
 ```
 multiple_imp<- mice(data, m = 5, method = "pmm")
 ```
@@ -183,12 +182,11 @@ https://statistical-programming.com/predictive-mean-matching-imputation-method/#
 
 
 `@script`
+Here is the result of multiple imputation.
 Y.0  is equal to the original Y with missing values.
 Y.1–Y.5 are the five imputed versions of Y.
 X1–X4 are the four predictor variables that we used as predictors for the imputation.
-By comparing rows 4 and 6, i.e. the rows with NAs, you can see the effect of multiple imputation. While Y.0 contains missings, Y.1–Y.5 are filled with imputed values. 
-
-Note that the imputed values are different in all 5 imputations. 
+By comparing rows 4 and 6, i.e. the rows with NAs, you can see the effect of multiple imputation. Note that the imputed values are different in all 5 imputations. 
 
 So, why are you seeing such differences? the answer is that this tells how much uncertainty is there in our imputation by which we can calculate standard errors that are more correct. So in way it is a good result.
 
