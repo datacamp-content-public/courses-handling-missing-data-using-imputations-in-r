@@ -17,7 +17,7 @@ title: Instructor at DataCamp
 
 
 `@script`
-Continuing with the univariate imputation methods, Predictive Mean Matching (PMM) is another method for univariate missing data imputation but it imputes values that are more realistic. Let's get stated!
+Continuing with the univariate imputation methods, Predictive Mean Matching (PMM) is another method for univariate missing data imputation but it imputes values that are more realistic. In this lesson you will learn about PMM and how to use it in R.
 
 
 ---
@@ -73,33 +73,6 @@ hide_title: true
 
 `@script`
 As compared to methods in previous lessons , PMM imputes more realistic values taking care of the problem of boundaries on variable values. For example a study observes the age of respondents so age can't be negative, PMM will make sure that imputed age is never negative. This is because, PMM borrows values from complete observations.
-
-
----
-## Example
-
-```yaml
-type: "FullSlide"
-key: "c019d15a0a"
-```
-
-`@part1`
-![](https://assets.datacamp.com/production/repositories/4908/datasets/66afc95a54577536db91b06971c6e2f24bc3e423/ch03-misspecify-1.png)
-
-Robustness of predictive mean matching (right) relative to imputation under the linear normal model (left).
-
-
-`@citations`
-https://stefvanbuuren.name/fimd/sec-pmm.html#fig:misspecify
-
-
-`@script`
-Figure shows the robustness of predictive mean matching relative to the normal model. The figure displays the body mass index (BMI) of children aged 0–2 years. BMI rapidly increases during the first half year of life, has a peak around 1 year and then slowly drops at ages when the children start to walk. 
-
-If you look at the left-hand figure, Imputations created under the normal model display in an incorrect slowly rising pattern, and contain several implausible values. 
-Look at BMI values that start to drop between 0.5-1.0.
-
-In contrast, the imputations created by predictive mean matching follow the data quite nicely, even though the predictive mean itself is clearly off-target for some of the ages. See BMI points between 0.5-1.0, unlike normal imputation values are according to specification. This example shows that predictive mean matching is robust against misspecification, where the normal model is not.
 
 
 ---
