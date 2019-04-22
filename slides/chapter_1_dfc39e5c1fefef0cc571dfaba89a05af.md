@@ -127,9 +127,10 @@ data_imp<- complete(single_imp)
 Here MICE will run PMM to impute missing values once. To install the package use install.packages("mice") and then include it in your program using
 library("mice").
 
-use the method mice([datasetname], m=[number of imputations], method="pmm") to impute misisng values because this is single imputation "m=1".
+to impute missing values use the method mice that uses [datasetname], m which is [number of imputations] and method which will be "pmm").
+Because this is single imputation "m=1".
 
-Then save your imputed dataset by using the "complete([imputedobject])" method and store in an object.
+Then save your imputed dataset by using the "complete()" method and pass the imputed data created by mice() method and store in an object.
 
 
 ---
