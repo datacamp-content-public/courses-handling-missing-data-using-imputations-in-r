@@ -29,8 +29,7 @@ key: "b992a3ebac"
 ```
 
 `@part1`
-![](https://assets.datacamp.com/production/repositories/4908/datasets/4a08c3b12972352d9b0a366ae1eb79b34ef261e5/pmm-1.png){{1}}
-![](https://assets.datacamp.com/production/repositories/4908/datasets/9eb777ec2a56b2bcb6afe8666309577f867c4434/pmm-2.png){{2}}
+![](https://assets.datacamp.com/production/repositories/4908/datasets/dabc5246cb9cf8098620f1cf89a44cb38f3e1dfd/pmm1.jpg)
 
 
 `@script`
