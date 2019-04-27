@@ -29,20 +29,12 @@ key: "b992a3ebac"
 ```
 
 `@part1`
-- PMM is the method of imputing missing values by predicting the values by selecting donors (typically 3, 5, or 10) from complete cases.
-- Originally developed for monotonic missing pattern
-- It builds a **linear regression model** on complete observations to find the coefficients
-- Uses the coefficients to predict values for missing and non-missing cases 
-- One donor is randomly drawn from a set of candidates whose predicted value is closer to predicted value of missing case and the observed value of the donor is taken to replace the missing value.
-
-
-`@citations`
-1. https://stefvanbuuren.name/fimd/sec-pmm.html
-2. https://statisticalhorizons.com/predictive-mean-matching
+![](https://assets.datacamp.com/production/repositories/4908/datasets/4a08c3b12972352d9b0a366ae1eb79b34ef261e5/pmm-1.png){{1}}
+![](https://assets.datacamp.com/production/repositories/4908/datasets/9eb777ec2a56b2bcb6afe8666309577f867c4434/pmm-2.png){{2}}
 
 
 `@script`
-PMM is the method of imputing missing values by predicting the values by selecting donors from complete cases. 
+- PMM is the method of imputing missing values by predicting the values by selecting donors (typically 3, 5, or 10) from complete cases.
 PMM was developed for monotonic missing pattern where only a single variable is missing data. 
 It builds a linear regression model on complete observations to find the coefficients
 Uses the coefficients to create a new set of coefficients and uses them to predict values for missing and non-missing cases both. 
@@ -108,11 +100,7 @@ hide_title: true
 
 `@part1`
 ## Single PMM Imputation using MICE
-Install the package:
-```
-install.packages("mice")
-library("mice")
-```
+
 Consider the dataset named 'data' having missing values
 ```
 single_imp<- mice(data, m = 1, method = "pmm")
@@ -124,9 +112,6 @@ data_imp<- complete(single_imp)
 
 
 `@script`
-Here MICE will run PMM to impute missing values once. To install the package use install.packages("mice") and then include it in your program using
-library("mice").
-
 to impute missing values use the method mice that uses [datasetname], m which is [number of imputations] and method which will be "pmm").
 Because this is single imputation "m=1".
 
