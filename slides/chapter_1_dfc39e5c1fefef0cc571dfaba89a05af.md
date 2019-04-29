@@ -55,12 +55,12 @@ hide_title: true
 ```
 
 `@part1`
-- It is used to impute quantitative data that is not normally distributed
+- It is used to impute quantitative data that is not normally distributed {{1}}
 
-- **More realistic values**:
-- bounded variables
-- E.g age of person is not imputed negative
-- original variable is discrete then imputed value will also be discrete
+- **More realistic values**: {{2}}
+- bounded variables{{3}}
+- E.g age of person is not imputed negative{{4}}
+- original variable is discrete then imputed value will also be discrete{{5}}
 
 
 `@citations`
@@ -87,7 +87,7 @@ key: "4d8b556fb3"
 
 
 `@script`
-Let's apply PMM on this example dataset named 'data' having Y1 as target variable which has missing values and four predictor (indep) variables X1, X2, X3 and X4. 
+Let's apply PMM on this example dataset named 'data' having Y1 as target variable which has missing values and four predictor variables X1, X2, X3 and X4. 
 
 Y1 has 20% missing data.
 Let's first apply single imputation using MICE
@@ -109,16 +109,36 @@ Consider the dataset named 'data' having missing values
 ```
 single_imp<- mice(data, m = 1, method = "pmm")
 ```
-To store the imputed data using **'complete()'** function
-```
-data_imp<- complete(single_imp)
-```
+**Output:**
+![](https://assets.datacamp.com/production/repositories/4908/datasets/0af178cf1f6c18d01a9f83aebf5b74c5295d207e/code1.PNG)
 
 
 `@script`
-to impute missing values use the method mice that uses [datasetname], m which is [number of imputations] and method which will be "pmm").
-Because this is single imputation "m=1".
+to impute missing values use the method mice that uses the dataset, m which is [number of imputations] and method which will be "pmm").
+Because this is single imputation "m=1". The MICE works on iterations which will be discussed later in the course.
 
+
+---
+## Insert title here...
+
+```yaml
+type: "FullSlide"
+key: "cb772f7001"
+hide_title: true
+```
+
+`@part1`
+To store the imputed data using **'complete()'** function
+```
+data_imp<- complete(single_imp)
+head(data_imp)  #show first 6 rows of imputed data
+```
+
+**Output:**
+![](https://assets.datacamp.com/production/repositories/4908/datasets/e174830daf6777a378b9a203ae08d43eeeffe29f/code2.PNG)
+
+
+`@script`
 Then save your imputed dataset by using the "complete()" method and pass the imputed data created by mice() method and store in an object.
 
 
@@ -137,19 +157,43 @@ hide_title: true
 ```
 multiple_imp<- mice(data, m = 5, method = "pmm")
 ```
-To store the imputed data using **'complete()'** function and use arguments **“repeated”** and **'include = TRUE'**
+**Output:**
 
-```
-data_imp_all<- complete(multiple_imp, repeated, include=TRUE)
-```
+![](https://assets.datacamp.com/production/repositories/4908/datasets/37941ef2efa8a4ccc48ee50979a90882e1637704/code3.PNG)
+{{1}}
 
 
 `@script`
-Here MICE will run PMM to impute missing values more than once.
+Here MICE will run PMM more than once.
 
-use the method mice that uses [datasetname], m which is the [number of imputations] and method="pmm") to impute misisng values. because this is multiple imputation use any number of imputations as required. here it is 5.
+For multiple imputation use the same mice method, and give m which is number of imputations, any number that you require. here it is 5.
 
-Then save your multiple imputed dataset by using the "complete()" method passing the imputed data along with the arguments: "repeated" and "include=TRUE" that tell complete method how to store the multiple imputed results.
+
+---
+## Insert title here...
+
+```yaml
+type: "FullSlide"
+key: "538276aad5"
+hide_title: true
+```
+
+`@part1`
+To store the imputed data using **'complete()'** function and use arguments **“repeated”** and **'include = TRUE'** 
+
+```
+data_imp_all<- complete(multiple_imp, "repeated", include=TRUE)
+head(data_imp_all)
+```
+
+**Output:**
+![](https://assets.datacamp.com/production/repositories/4908/datasets/c737565aefffeba8276b384d4684b5cd0141ca37/code4.PNG)
+{{1}}
+
+
+`@script`
+Then save your multiple imputed dataset by using the "complete()" method passing the imputed data along with the arguments: "repeated" and "include=TRUE" that tell complete method how to store the multiple imputed results. 
+The output is showing the data used for the 5 imputations.
 
 
 ---
@@ -163,7 +207,13 @@ hide_title: true
 
 `@part1`
 ## Output of Multiple PMM imputation
-![](https://assets.datacamp.com/production/repositories/4908/datasets/82965dad2056b4622f193c259a3c6fa8e7e3783a/Table-2-First-6-Rows-with-Multiply-Imputed-Values.png)
+Let's make the output a bit more easier to read by removing the repeated X columns:
+
+```
+data_imp_mult<- data.frame(data_imp_all[ , 1:6],data[, 2:5])
+head(data_imp_mult) 
+```
+![](https://assets.datacamp.com/production/repositories/4908/datasets/d0e08d835e00f8f6c179438f959b73366b830047/code5.PNG)
 
 
 `@citations`
@@ -171,10 +221,10 @@ https://statistical-programming.com/predictive-mean-matching-imputation-method/#
 
 
 `@script`
-Here is the result of multiple imputation.
+Let's take a look at the final result
 Y.0  is equal to the original Y with missing values.
 Y.1–Y.5 are the five imputed versions of Y.
-X1–X4 are the four predictor variables that we used as predictors for the imputation.
+X1–X4 are the four predictors that are used as for the imputation.
 By comparing rows 4 and 6, i.e. the rows with NAs, you can see the effect of multiple imputation. Note that the imputed values are different in all 5 imputations. 
 
 So, why are you seeing such differences? the answer is that this tells how much uncertainty is there in our imputation by which we can calculate standard errors that are more correct. So in way it is a good result.
