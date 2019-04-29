@@ -213,6 +213,7 @@ Let's make the output a bit more easier to read by removing the repeated X colum
 data_imp_mult<- data.frame(data_imp_all[ , 1:6],data[, 2:5])
 head(data_imp_mult) 
 ```
+{{1}}
 ![](https://assets.datacamp.com/production/repositories/4908/datasets/d0e08d835e00f8f6c179438f959b73366b830047/code5.PNG)
 
 
