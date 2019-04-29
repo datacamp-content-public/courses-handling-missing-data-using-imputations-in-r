@@ -35,9 +35,13 @@ key: "b992a3ebac"
 `@script`
 - PMM is the method of imputing missing values by predicting the values by selecting donors (typically 3, 5, or 10) from complete cases.
 PMM was developed for monotonic missing pattern where only a single variable is missing data. 
-It builds a linear regression model on complete observations to find the coefficients
-Uses the coefficients to create a new set of coefficients and uses them to predict values for missing and non-missing cases both. 
-One donor is randomly drawn from a set of candidates, whose predicted value is closer to predicted value of missing case and the observed value of the donor is taken to replace the missing value.
+So here are the steps of how pmm replaces missing values:
+Step1: you have data that has missing values 
+Step2: It builds a linear regression model on complete observations to find the coefficients
+Step3: Uses the coefficients to create a new set of coefficients
+Step4: uses new coefficients to predict values for missing and non-missing cases both. 
+Step5: A set of donors is randomly drawn from complete data
+Step6: the donor whose whose predicted value is closer to predicted value of missing case, its observed value is taken to replace the missing value.
 
 
 ---
@@ -82,7 +86,7 @@ key: "4d8b556fb3"
 
 
 `@script`
-Let's apply PMM on this example dataset named 'data' having Y1 as target variable which has missing values and four predictor variables X1, X2, X3 and X4. 
+Let's apply PMM on this example dataset named 'data' having Y1 as target variable which has missing values and four predictor (indep) variables X1, X2, X3 and X4. 
 
 Y1 has 20% missing data.
 Let's first apply single imputation using MICE
