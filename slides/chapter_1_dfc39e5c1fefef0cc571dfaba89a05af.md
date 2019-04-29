@@ -40,8 +40,9 @@ Step1: you have data that has missing values
 Step2: It builds a linear regression model on complete observations to find the coefficients
 Step3: Uses the coefficients to create a new set of coefficients
 Step4: uses new coefficients to predict values for missing and non-missing cases both. 
-Step5: A set of donors is randomly drawn from complete data
-Step6: the donor whose whose predicted value is closer to predicted value of missing case, its observed value is taken to replace the missing value.
+Step5: A set of donors is drawn from complete data
+whose predicted value is closer to predicted value of missing case
+Step 6: One donor is selected randomly and its observed value is taken to replace the missing value.
 
 
 ---
