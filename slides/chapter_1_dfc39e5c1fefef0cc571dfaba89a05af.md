@@ -207,14 +207,15 @@ hide_title: true
 
 `@part1`
 ## Output of Multiple PMM imputation
+
+
 Let's make the output a bit more easier to read by removing the repeated X columns:
 
 ```
-data_imp_mult<- data.frame(data_imp_all[ , 1:6],data[, 2:5])
+data_imp_mult<- data.frame(data_imp_all[ , 1:6],
+data[, 2:5])
 head(data_imp_mult) 
 ```
-{{1}}
-![](https://assets.datacamp.com/production/repositories/4908/datasets/d0e08d835e00f8f6c179438f959b73366b830047/code5.PNG)
 
 
 `@citations`
@@ -222,13 +223,33 @@ https://statistical-programming.com/predictive-mean-matching-imputation-method/#
 
 
 `@script`
-Let's take a look at the final result
+
+
+
+---
+## Insert title here...
+
+```yaml
+type: "FullSlide"
+key: "f5e012d619"
+hide_title: true
+```
+
+`@part1`
+**Final Output:**
+
+![](https://assets.datacamp.com/production/repositories/4908/datasets/d0e08d835e00f8f6c179438f959b73366b830047/code5.PNG)
+
+
+`@script`
+Now the output is compact and easier to understand.
+Here
 Y.0  is equal to the original Y with missing values.
 Y.1–Y.5 are the five imputed versions of Y.
 X1–X4 are the four predictors that are used as for the imputation.
 By comparing rows 4 and 6, i.e. the rows with NAs, you can see the effect of multiple imputation. Note that the imputed values are different in all 5 imputations. 
 
-So, why are you seeing such differences? the answer is that this tells how much uncertainty is there in our imputation by which we can calculate standard errors that are more correct. So in way it is a good result.
+So, why are you seeing such differences? the answer is that this tells how much uncertainty is there in our imputation by which we can calculate standard errors that are more correct.
 
 
 ---
@@ -240,11 +261,11 @@ key: "86e2a5ec7c"
 ```
 
 `@part1`
-- Defaut value of donors (d=5) in MICE package in R for continuous data
-- Number of donors have an effect on imputed values
-- PMM works best large data sets to get better donors
-- Does not work well with sparse data
-- Cannot be used to impute values outside the range of data
+- Defaut value of donors (d=5) in MICE package in R for continuous data 
+- Number of donors have an effect on imputed values 
+- PMM works best large data sets to get better donors 
+- Does not work well with sparse data 
+- Cannot be used to impute values outside the range of data. 
 - PMM is less vulnerable to model misspecification and avoids meaningless imputations.
 
 
