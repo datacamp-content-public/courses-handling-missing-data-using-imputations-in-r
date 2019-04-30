@@ -33,7 +33,7 @@ key: "b992a3ebac"
 
 
 `@script`
-- PMM is the method of imputing missing values by predicting the values by selecting donors (typically 3, 5, or 10) from complete cases.
+- PMM uses prediction to impute missing values which by selecting donors (typically 3, 5, or 10) from complete cases.
 PMM was developed for monotonic missing pattern where only a single variable is missing data. 
 So here are the steps of how pmm replaces missing values:
 Step1: you have data that has missing values 
@@ -242,7 +242,7 @@ hide_title: true
 
 
 `@script`
-Now the output is compact and easier to understand.
+Now the output is easier to understand.
 Here
 Y.0  is equal to the original Y with missing values.
 Y.1–Y.5 are the five imputed versions of Y.
