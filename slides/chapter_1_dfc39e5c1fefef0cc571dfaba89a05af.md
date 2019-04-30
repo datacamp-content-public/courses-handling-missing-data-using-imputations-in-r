@@ -223,7 +223,7 @@ https://statistical-programming.com/predictive-mean-matching-imputation-method/#
 
 
 `@script`
-
+You can extract required columns to make output compact
 
 
 ---
