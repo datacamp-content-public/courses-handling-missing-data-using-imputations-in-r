@@ -46,12 +46,12 @@ Step 6: One donor is selected randomly and its observed value is taken to replac
 
 
 ---
-## title
+## Characteristics of PMM
 
 ```yaml
 type: "FullSlide"
 key: "663c374de2"
-hide_title: true
+hide_title: false
 ```
 
 `@part1`
